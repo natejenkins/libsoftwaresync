@@ -521,10 +521,10 @@ public class MainActivity extends Activity {
       for (Size s : rawOutputSizes) {
         Log.i(TAG, s.toString());
       }
+      rawImageResolution = Collections.max(Arrays.asList(rawOutputSizes), new CompareSizesByArea());
     } else {
       Log.i(TAG, "Bayer RAW unavailable!");
     }
-    rawImageResolution = Collections.max(Arrays.asList(rawOutputSizes), new CompareSizesByArea());
 
     Size[] yuvOutputSizes = scm.getOutputSizes(ImageFormat.YUV_420_888);
     if (yuvOutputSizes != null) {
